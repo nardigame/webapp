@@ -1,0 +1,19 @@
+{
+  "name": "checkers-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bezdonas/checkers-webapp.git"
+  },
+  "author": "Ramil Aliev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bezdonas/checkers-webapp/issues"
+  },
+  "homepage": "https://github.com/bezdonas/checkers-webapp#readme"
+}
