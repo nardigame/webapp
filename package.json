@@ -1,23 +1,20 @@
 {
-  "name": "checkers-webapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.html",
   "scripts": {
     "start": "snowpack dev",
-    "test": "npm test"
+    "build": "snowpack build",
+    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
+    "lint": "prettier --check \"src/**/*.{ts,js}\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bezdonas/checkers-webapp.git"
+  "dependencies": {
+    "canvas-confetti": "^1.2.0"
   },
-  "author": "Ramil Aliev",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bezdonas/checkers-webapp/issues"
-  },
-  "homepage": "https://github.com/bezdonas/checkers-webapp#readme",
   "devDependencies": {
-    "snowpack": "^3.3.5"
+    "@snowpack/plugin-typescript": "^1.2.0",
+    "@types/canvas-confetti": "^1.0.0",
+    "@types/snowpack-env": "^2.3.2",
+    "prettier": "^2.0.5",
+    "snowpack": "^3.0.1",
+    "typescript": "^4.0.0"
   }
 }
