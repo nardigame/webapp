@@ -2,8 +2,9 @@
   "name": "checkers-webapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
+    "start": "snowpack dev",
     "test": "npm test"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bezdonas/checkers-webapp/issues"
   },
-  "homepage": "https://github.com/bezdonas/checkers-webapp#readme"
+  "homepage": "https://github.com/bezdonas/checkers-webapp#readme",
+  "devDependencies": {
+    "snowpack": "^3.3.5"
+  }
 }
