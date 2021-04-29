@@ -7,7 +7,6 @@ module.exports = {
   plugins: [
     [
       '@snowpack/plugin-typescript',
-      '@snowpack/web-test-runner-plugin',
       {
         /* Yarn PnP workaround: see https://www.npmjs.com/package/@snowpack/plugin-typescript */
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
