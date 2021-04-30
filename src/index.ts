@@ -1,4 +1,4 @@
 export const helloTo = (name?: string): string =>
-  name ? `Hello ${name}` : 'Hello world';
+  name ? `Hello ${name}` : 'Hello worl';
 
-console.log(helloTo());
+console.log(helloTo('Ramil'));
