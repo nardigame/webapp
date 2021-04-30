@@ -7,7 +7,12 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "lint": "prettier --check \"src/**/*.{ts,js}\""
+    "lint": "pretty-quick --staged & eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
@@ -16,11 +21,18 @@
     "@snowpack/plugin-typescript": "^1.2.0",
     "@types/jest": "^26.0.23",
     "@types/snowpack-env": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "babel-jest": "^26.6.3",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "snowpack": "^3.0.1",
     "ts-node": "^9.1.1",
-    "typescript": "^4.0.0"
+    "typescript": "^4.2.4"
   }
 }
