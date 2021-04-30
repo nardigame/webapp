@@ -1,19 +1,33 @@
 {
   "name": "checkers-webapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
-    "test": "npm test"
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
+    "lint": "prettier --check \"src/**/*.{ts,js}\" & eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "husky install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bezdonas/checkers-webapp.git"
-  },
-  "author": "Ramil Aliev",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bezdonas/checkers-webapp/issues"
-  },
-  "homepage": "https://github.com/bezdonas/checkers-webapp#readme"
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@snowpack/plugin-typescript": "^1.2.0",
+    "@types/jest": "^26.0.23",
+    "@types/snowpack-env": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.0.5",
+    "snowpack": "^3.0.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
 }
