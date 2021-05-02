@@ -4,9 +4,8 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "jest & npm run e2e",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "e2e": "cypress run",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "prettier --check \"src/**/*.{ts,js}\" & eslint . --ext .js,.jsx,.ts,.tsx",
