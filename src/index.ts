@@ -1,4 +1,3 @@
-export const helloTo = (name?: string): string =>
-  name ? `Hello ${name}` : 'Hello world';
+import { helloTo } from './hello';
 
-console.log(helloTo());
+console.log(helloTo('Ramil'));
