@@ -1,4 +1,4 @@
-name: Node.js CI
+name: e2e tests
 
 on:
   push:
