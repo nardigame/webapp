@@ -1,4 +1,4 @@
-import { helloTo } from '../index';
+import { helloTo } from '../hello';
 
 it('says hello to you', () => {
   expect(helloTo('Ramil')).toEqual('Hello Ramil');
