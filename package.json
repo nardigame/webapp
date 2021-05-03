@@ -1,5 +1,5 @@
 {
-  "name": "checkers-webapp",
+  "name": "backgammon-webapp",
   "main": "src/index.html",
   "scripts": {
     "start": "snowpack dev",

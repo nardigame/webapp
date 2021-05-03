@@ -1,6 +1,6 @@
 # Work in progress
 
-# Checkers webapp
+# Backgammon webapp
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
