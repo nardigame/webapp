@@ -1,36 +1,4 @@
 import { toggleTurn, recordMove } from '../MoveOperator';
-import { GameState } from '../types';
-
-const mockBoard: GameState = {
-  history: [],
-  board: {
-    1: null,
-    2: null,
-    3: { quantity: 2, side: 'black' },
-    4: null,
-    5: null,
-    6: { quantity: 1, side: 'black' },
-    7: null,
-    8: null,
-    9: null,
-    10: null,
-    11: null,
-    12: { quantity: 12, side: 'black' },
-    13: null,
-    14: null,
-    15: null,
-    16: null,
-    17: null,
-    18: null,
-    19: null,
-    20: null,
-    21: { quantity: 2, side: 'white' },
-    22: null,
-    23: null,
-    24: { quantity: 12, side: 'white' },
-  },
-  turn: 'white',
-};
 
 describe('toggleTurn should change games turn', () => {
   it('case 1', () => {

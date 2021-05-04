@@ -9,7 +9,7 @@
     "test:watch": "jest --watch",
     "e2e": "cypress run",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "lint": "prettier --check \"src/**/*.{ts,js}\" & eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "prettier --check \"src/**/*.{ts,js}\" & eslint ./src --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install"
   },
   "devDependencies": {
