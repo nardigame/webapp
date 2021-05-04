@@ -1,5 +1,4 @@
-import { Move, Side, Movement, Board } from './types';
-import cloneDeep from 'lodash.cloneDeep';
+import type { Move, Side, Movement, Board } from './types';
 
 export const toggleTurn = (turn: Side): Side =>
   turn === 'white' ? 'black' : 'white';
@@ -9,38 +8,24 @@ export const recordMove = (move: Move, history: Move[]): Move[] => [
   move,
 ];
 
-// TODO: REFACTOR
+// TODO: refactor: break-up (look into tests), clear mutations
 export const applyMovementToBoard = (
   movement: Movement,
   board: Board,
 ): Board => {
-  const newBoard = cloneDeep(board);
+  const newBoard = { ...board };
 
   const [from, to] = movement;
-  let sideFrom;
+  const sideFrom = newBoard[from].side;
 
-  if (newBoard[from]) {
-    sideFrom = newBoard[from].side;
-    newBoard[from].quantity -= 1;
+  newBoard[from].quantity -= 1; // MUTATION
 
-    if (newBoard[from].quantity === 0) {
-      newBoard[from] = null;
-    }
-  } else {
-    console.error(
-      'applyMovementToBoard attempted illegal move: seems like validation failed',
-    );
-    return { ...board };
+  if (newBoard[from].quantity === 0) {
+    newBoard[from] = null;
   }
 
   if (newBoard[to]) {
-    if (newBoard[to].side !== sideFrom) {
-      console.error(
-        'applyMovementToBoard attempted illegal move: seems like validation failed',
-      );
-      return { ...board };
-    }
-    newBoard[to].quantity += 1;
+    newBoard[to].quantity += 1; // MUTATION
   } else {
     newBoard[to] = {
       quantity: 1,

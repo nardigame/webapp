@@ -1,4 +1,4 @@
-import { GameState } from './types';
+import type { GameState } from './types';
 
 export const INITIAL_GAME_STATE: GameState = {
   history: [],
