@@ -1,4 +1,4 @@
-import type { Move, Side, Movement, Board } from './types';
+import type { Move, Side, Movement, Board, Field } from './types';
 
 export const _toggleTurn = (turn: Side): Side =>
   turn === 'white' ? 'black' : 'white';
@@ -24,6 +24,6 @@ export const _applyMovementToBoard = (
   return {
     ...board,
     [from]: _subtractChipFromField(board[from]),
-    [to]: _addChipToField(board[to], board[from].side),
+    [to]: _addChipToField(board[to], board[from]?.side ?? 'white'),
   };
 };
