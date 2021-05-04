@@ -3,4 +3,3 @@
 
 npm run test
 npm run build
-npx serve ./build & npm run e2e
