@@ -1,27 +1,27 @@
 import {
-  toggleTurn,
-  recordMove,
-  subtractChipFromField,
-  addChipToField,
-  applyMovementToBoard,
+  _toggleTurn,
+  _recordMove,
+  _subtractChipFromField,
+  _addChipToField,
+  _applyMovementToBoard,
 } from '../MoveOperator';
 
 import MoveOperator from '../MoveOperator';
 
-describe('toggleTurn should change games turn', () => {
+describe('_toggleTurn should change games turn', () => {
   it('case 1', () => {
-    expect(toggleTurn('white')).toEqual('black');
+    expect(_toggleTurn('white')).toEqual('black');
   });
 
   it('case 2', () => {
-    expect(toggleTurn('black')).toEqual('white');
+    expect(_toggleTurn('black')).toEqual('white');
   });
 });
 
-describe('recordMove should add move history array', () => {
+describe('_recordMove should add move history array', () => {
   it('case 1', () => {
     expect(
-      recordMove(
+      _recordMove(
         {
           side: 'white',
           roll: [6, 4],
@@ -46,7 +46,7 @@ describe('recordMove should add move history array', () => {
 
   it('case 2', () => {
     expect(
-      recordMove(
+      _recordMove(
         {
           side: 'black',
           roll: [1, 3],
@@ -87,28 +87,51 @@ describe('recordMove should add move history array', () => {
   });
 });
 
-describe('validateMovement', () => {
-  it('should be written', () => {
-    expect(1).toEqual(0);
+describe('_addChipToField should add chip of corresponding side to the field', () => {
+  it('case 1', () => {
+    expect(_addChipToField({ side: 'white', quantity: 1 }, 'white')).toEqual({
+      side: 'white',
+      quantity: 2,
+    });
+  });
+  it('case 2', () => {
+    expect(_addChipToField({ side: 'black', quantity: 3 }, 'black')).toEqual({
+      side: 'black',
+      quantity: 4,
+    });
+  });
+  it('case 3', () => {
+    expect(_addChipToField(null, 'black')).toEqual({
+      side: 'black',
+      quantity: 1,
+    });
   });
 });
 
-describe('addChipToField', () => {
-  it('should be written', () => {
-    expect(1).toEqual(0);
+describe('_subtractChipFromField should remove chip from field', () => {
+  it('case 1', () => {
+    expect(_subtractChipFromField({ side: 'white', quantity: 1 })).toEqual(
+      null,
+    );
+  });
+  it('case 2', () => {
+    expect(_subtractChipFromField({ side: 'white', quantity: 2 })).toEqual({
+      side: 'white',
+      quantity: 1,
+    });
+  });
+  it('case 3', () => {
+    expect(_subtractChipFromField({ side: 'black', quantity: 15 })).toEqual({
+      side: 'black',
+      quantity: 14,
+    });
   });
 });
 
-describe('subtractChipFromField', () => {
-  it('should be written', () => {
-    expect(1).toEqual(0);
-  });
-});
-
-describe('applyMovementToBoard should return changed board according to the move', () => {
+describe('_applyMovementToBoard should return changed board according to the move', () => {
   it('case 1', () => {
     expect(
-      applyMovementToBoard([24, 20], {
+      _applyMovementToBoard([24, 20], {
         1: null,
         2: null,
         3: null,
@@ -164,7 +187,7 @@ describe('applyMovementToBoard should return changed board according to the move
 
   it('case 2', () => {
     expect(
-      applyMovementToBoard([8, 7], {
+      _applyMovementToBoard([8, 7], {
         1: null,
         2: null,
         3: { quantity: 2, side: 'black' },
@@ -220,7 +243,7 @@ describe('applyMovementToBoard should return changed board according to the move
 
   it('case 3', () => {
     expect(
-      applyMovementToBoard([12, 8], {
+      _applyMovementToBoard([12, 8], {
         1: null,
         2: null,
         3: { quantity: 2, side: 'black' },

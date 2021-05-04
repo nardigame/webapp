@@ -1,37 +1,29 @@
 import type { Move, Side, Movement, Board } from './types';
 
-export const toggleTurn = (turn: Side): Side =>
+export const _toggleTurn = (turn: Side): Side =>
   turn === 'white' ? 'black' : 'white';
 
-export const recordMove = (move: Move, history: Move[]): Move[] => [
+export const _recordMove = (move: Move, history: Move[]): Move[] => [
   ...history,
   move,
 ];
 
-// TODO: refactor: break-up (look into tests), clear mutations
-export const applyMovementToBoard = (
+export const _addChipToField = (field: Field, side: Side): Field =>
+  field ? { ...field, quantity: field.quantity + 1 } : { quantity: 1, side };
+
+export const _subtractChipFromField = (field: Field): Field =>
+  field && field.quantity > 1
+    ? { ...field, quantity: field.quantity - 1 }
+    : null;
+
+export const _applyMovementToBoard = (
   movement: Movement,
   board: Board,
 ): Board => {
-  const newBoard = { ...board };
-
   const [from, to] = movement;
-  const sideFrom = newBoard[from].side;
-
-  newBoard[from].quantity -= 1; // MUTATION
-
-  if (newBoard[from].quantity === 0) {
-    newBoard[from] = null;
-  }
-
-  if (newBoard[to]) {
-    newBoard[to].quantity += 1; // MUTATION
-  } else {
-    newBoard[to] = {
-      quantity: 1,
-      side: sideFrom,
-    };
-  }
-
-  return newBoard;
+  return {
+    ...board,
+    [from]: _subtractChipFromField(board[from]),
+    [to]: _addChipToField(board[to], board[from].side),
+  };
 };
