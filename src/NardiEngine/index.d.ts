@@ -1,5 +1,4 @@
 export type Side = 'white' | 'black';
-export type TypeOfGame = 'long';
 
 export type Field = {
   quantity: number;
@@ -25,5 +24,4 @@ export type GameState = {
   history: Move[];
   board: Board;
   turn: Side;
-  type: TypeOfGame;
 };

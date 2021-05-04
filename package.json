@@ -1,5 +1,5 @@
 {
-  "name": "backgammon-webapp",
+  "name": "nardi-webapp",
   "main": "src/index.html",
   "scripts": {
     "start": "serve ./build",

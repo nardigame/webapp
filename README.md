@@ -1,6 +1,6 @@
 # Work in progress
 
-# Backgammon webapp
+# Nardi webapp
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 

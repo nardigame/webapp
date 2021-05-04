@@ -1,8 +1,8 @@
-import { initGame } from '../initGame';
+import { initMatch } from '../NardiMatch';
 
-describe('initGame', () => {
+describe('initMatch', () => {
   it('should return initial game state', () => {
-    expect(initGame('long')).toEqual({
+    expect(initMatch()).toEqual({
       history: [
         ...Array(11).fill(null),
         { quantity: 15, side: 'black' },
@@ -11,7 +11,6 @@ describe('initGame', () => {
       ],
       board: [],
       turn: 'white',
-      type: 'long',
     });
   });
 });

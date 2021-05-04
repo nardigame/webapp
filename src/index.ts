@@ -1,3 +1,3 @@
-import { initGame } from './BackgammonEngine/initGame';
+import { initMatch } from './NardiEngine/NardiMatch';
 
-console.log(initGame());
+console.log(initMatch());
