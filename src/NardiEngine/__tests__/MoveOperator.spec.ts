@@ -6,8 +6,6 @@ import {
   _applyMovementToBoard,
 } from '../MoveOperator';
 
-import MoveOperator from '../MoveOperator';
-
 describe('_toggleTurn should change games turn', () => {
   it('case 1', () => {
     expect(_toggleTurn('white')).toEqual('black');
