@@ -34,31 +34,15 @@ const mockBoard: GameState = {
 
 describe('toggleTurn should change games turn', () => {
   it('case 1', () => {
-    expect(
-      toggleTurn({
-        ...mockBoard,
-        turn: 'white',
-      }),
-    ).toEqual({
-      ...mockBoard,
-      turn: 'black',
-    });
+    expect(toggleTurn('white')).toEqual('black');
   });
 
   it('case 2', () => {
-    expect(
-      toggleTurn({
-        ...mockBoard,
-        turn: 'black',
-      }),
-    ).toEqual({
-      ...mockBoard,
-      turn: 'white',
-    });
+    expect(toggleTurn('black')).toEqual('white');
   });
 });
 
-describe('recordMove should add move into gameStates history', () => {
+describe('recordMove should add move history array', () => {
   it('case 1', () => {
     expect(
       recordMove(
@@ -70,21 +54,18 @@ describe('recordMove should add move into gameStates history', () => {
             [18, 14],
           ],
         },
-        { ...mockBoard },
+        [],
       ),
-    ).toEqual({
-      ...mockBoard,
-      history: [
-        {
-          side: 'white',
-          roll: [6, 4],
-          movements: [
-            [24, 18],
-            [18, 14],
-          ],
-        },
-      ],
-    });
+    ).toEqual([
+      {
+        side: 'white',
+        roll: [6, 4],
+        movements: [
+          [24, 18],
+          [18, 14],
+        ],
+      },
+    ]);
   });
 
   it('case 2', () => {
@@ -98,40 +79,34 @@ describe('recordMove should add move into gameStates history', () => {
             [11, 8],
           ],
         },
-        {
-          ...mockBoard,
-          history: [
-            {
-              side: 'white',
-              roll: [6, 4],
-              movements: [
-                [24, 18],
-                [18, 14],
-              ],
-            },
-          ],
-        },
+        [
+          {
+            side: 'white',
+            roll: [6, 4],
+            movements: [
+              [24, 18],
+              [18, 14],
+            ],
+          },
+        ],
       ),
-    ).toEqual({
-      ...mockBoard,
-      history: [
-        {
-          side: 'white',
-          roll: [6, 4],
-          movements: [
-            [24, 18],
-            [18, 14],
-          ],
-        },
-        {
-          side: 'black',
-          roll: [1, 3],
-          movements: [
-            [12, 11],
-            [11, 8],
-          ],
-        },
-      ],
-    });
+    ).toEqual([
+      {
+        side: 'white',
+        roll: [6, 4],
+        movements: [
+          [24, 18],
+          [18, 14],
+        ],
+      },
+      {
+        side: 'black',
+        roll: [1, 3],
+        movements: [
+          [12, 11],
+          [11, 8],
+        ],
+      },
+    ]);
   });
 });
