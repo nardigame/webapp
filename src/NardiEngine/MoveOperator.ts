@@ -21,9 +21,10 @@ export const _applyMovementToBoard = (
   board: Board,
 ): Board => {
   const [from, to] = movement;
+  const fromField: Field = board[from];
   return {
     ...board,
-    [from]: _subtractChipFromField(board[from]),
-    [to]: _addChipToField(board[to], board[from]?.side ?? 'white'),
+    [from]: _subtractChipFromField(fromField),
+    [to]: _addChipToField(board[to], fromField?.side ?? 'white'), // TODO: think up how to fix this in TS way without cheating
   };
 };
