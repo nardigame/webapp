@@ -1,3 +1,3 @@
-import { helloTo } from './hello';
+import { initGame } from './BackgammonEngine/initGame';
 
-console.log(helloTo('Ramil'));
+console.log(initGame());
