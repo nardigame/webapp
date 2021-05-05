@@ -1,4 +1,4 @@
-import type { Move, Side, Movement, Board, Field } from './types';
+import type { Move, Side, Movement, Board, Field, Chip } from './types';
 
 export const _toggleTurn = (turn: Side): Side =>
   turn === 'white' ? 'black' : 'white';
@@ -8,7 +8,7 @@ export const _recordMove = (move: Move, history: Move[]): Move[] => [
   move,
 ];
 
-export const _addChipToField = (field: Field, side: Side): Field =>
+export const _addChipToField = (field: Field, side: Side): Chip =>
   field ? { ...field, quantity: field.quantity + 1 } : { quantity: 1, side };
 
 export const _subtractChipFromField = (field: Field): Field =>
@@ -21,10 +21,13 @@ export const _applyMovementToBoard = (
   board: Board,
 ): Board => {
   const [from, to] = movement;
-  const fromField: Field = board[from];
+  if (!board[from]) {
+    throw '_applyMovementToBoard accepted illegal move: fix the validation';
+  }
+  const fromField = board[from] as Chip;
   return {
     ...board,
     [from]: _subtractChipFromField(fromField),
-    [to]: _addChipToField(board[to], fromField?.side ?? 'white'), // TODO: think up how to fix this in TS way without cheating
+    [to]: _addChipToField(board[to], fromField.side),
   };
 };

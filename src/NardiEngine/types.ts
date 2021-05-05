@@ -1,9 +1,11 @@
 export type Side = 'white' | 'black';
 
-export type Field = {
+export type Chip = {
   quantity: number;
   side: Side;
-} | null;
+};
+
+export type Field = Chip | null;
 
 export type Board = {
   [key: number]: Field;

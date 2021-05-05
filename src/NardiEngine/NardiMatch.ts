@@ -1,4 +1,4 @@
-import { INITIAL_GAME_STATE } from './INITIAL_GAME_STATE';
+import { INITIAL_GAME_STATE } from './constants/INITIAL_GAME_STATE';
 import type { GameState } from './types';
 
 export const initMatch = (): GameState => ({

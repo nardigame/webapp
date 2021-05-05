@@ -5,6 +5,8 @@ import {
   _addChipToField,
   _applyMovementToBoard,
 } from '../MoveOperator';
+import type { Board } from '../types';
+import { EMPTY_BOARD } from '../constants/EMPTY_BOARD';
 
 describe('_toggleTurn should change games turn', () => {
   it('case 1', () => {
@@ -130,55 +132,14 @@ describe('_applyMovementToBoard should return changed board according to the mov
   it('case 1', () => {
     expect(
       _applyMovementToBoard([24, 20], {
-        1: null,
-        2: null,
-        3: null,
-        4: null,
-        5: null,
-        6: null,
-        7: null,
-        8: null,
-        9: null,
-        10: null,
-        11: null,
+        ...EMPTY_BOARD,
         12: { quantity: 15, side: 'black' },
-        13: null,
-        14: null,
-        15: null,
-        16: null,
-        17: null,
-        18: null,
-        19: null,
-        20: null,
-        21: null,
-        22: null,
-        23: null,
         24: { quantity: 15, side: 'white' },
       }),
     ).toEqual({
-      1: null,
-      2: null,
-      3: null,
-      4: null,
-      5: null,
-      6: null,
-      7: null,
-      8: null,
-      9: null,
-      10: null,
-      11: null,
+      ...EMPTY_BOARD,
       12: { quantity: 15, side: 'black' },
-      13: null,
-      14: null,
-      15: null,
-      16: null,
-      17: null,
-      18: null,
-      19: null,
       20: { quantity: 1, side: 'white' },
-      21: null,
-      22: null,
-      23: null,
       24: { quantity: 14, side: 'white' },
     });
   });
@@ -186,55 +147,25 @@ describe('_applyMovementToBoard should return changed board according to the mov
   it('case 2', () => {
     expect(
       _applyMovementToBoard([8, 7], {
-        1: null,
-        2: null,
+        ...EMPTY_BOARD,
         3: { quantity: 2, side: 'black' },
-        4: null,
-        5: null,
         6: { quantity: 1, side: 'black' },
-        7: null,
         8: { quantity: 1, side: 'black' },
-        9: null,
-        10: null,
         11: { quantity: 1, side: 'white' },
         12: { quantity: 11, side: 'black' },
-        13: null,
-        14: null,
         15: { quantity: 2, side: 'white' },
-        16: null,
-        17: null,
-        18: null,
-        19: null,
-        20: null,
         21: { quantity: 1, side: 'white' },
-        22: null,
-        23: null,
         24: { quantity: 11, side: 'white' },
       }),
     ).toEqual({
-      1: null,
-      2: null,
+      ...EMPTY_BOARD,
       3: { quantity: 2, side: 'black' },
-      4: null,
-      5: null,
       6: { quantity: 1, side: 'black' },
       7: { quantity: 1, side: 'black' },
-      8: null,
-      9: null,
-      10: null,
       11: { quantity: 1, side: 'white' },
       12: { quantity: 11, side: 'black' },
-      13: null,
-      14: null,
       15: { quantity: 2, side: 'white' },
-      16: null,
-      17: null,
-      18: null,
-      19: null,
-      20: null,
       21: { quantity: 1, side: 'white' },
-      22: null,
-      23: null,
       24: { quantity: 11, side: 'white' },
     });
   });
@@ -242,56 +173,47 @@ describe('_applyMovementToBoard should return changed board according to the mov
   it('case 3', () => {
     expect(
       _applyMovementToBoard([12, 8], {
-        1: null,
-        2: null,
+        ...EMPTY_BOARD,
         3: { quantity: 2, side: 'black' },
-        4: null,
-        5: null,
         6: { quantity: 1, side: 'black' },
-        7: null,
         8: { quantity: 1, side: 'black' },
-        9: null,
-        10: null,
         11: { quantity: 1, side: 'white' },
         12: { quantity: 11, side: 'black' },
-        13: null,
-        14: null,
         15: { quantity: 2, side: 'white' },
-        16: null,
-        17: null,
-        18: null,
-        19: null,
-        20: null,
         21: { quantity: 1, side: 'white' },
-        22: null,
-        23: null,
         24: { quantity: 11, side: 'white' },
       }),
     ).toEqual({
-      1: null,
-      2: null,
+      ...EMPTY_BOARD,
       3: { quantity: 2, side: 'black' },
-      4: null,
-      5: null,
       6: { quantity: 1, side: 'black' },
-      7: null,
       8: { quantity: 2, side: 'black' },
-      9: null,
-      10: null,
       11: { quantity: 1, side: 'white' },
       12: { quantity: 10, side: 'black' },
-      13: null,
-      14: null,
       15: { quantity: 2, side: 'white' },
-      16: null,
-      17: null,
-      18: null,
-      19: null,
-      20: null,
       21: { quantity: 1, side: 'white' },
-      22: null,
-      23: null,
       24: { quantity: 11, side: 'white' },
     });
+  });
+});
+
+describe('_applyMovementToBoard should throw exeption if the move is impossible', () => {
+  it('case 1', () => {
+    expect(() => {
+      _applyMovementToBoard([3, 6], {
+        ...EMPTY_BOARD,
+        24: { quantity: 15, side: 'white' },
+        12: { quantity: 15, side: 'black' },
+      });
+    }).toThrow();
+  });
+  it('case 2', () => {
+    expect(() => {
+      _applyMovementToBoard([33, 24], {
+        ...EMPTY_BOARD,
+        24: { quantity: 15, side: 'white' },
+        12: { quantity: 15, side: 'black' },
+      });
+    }).toThrow();
   });
 });
