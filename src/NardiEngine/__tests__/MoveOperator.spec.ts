@@ -5,7 +5,6 @@ import {
   _addChipToField,
   _applyMovementToBoard,
 } from '../MoveOperator';
-import type { Board } from '../types';
 import { EMPTY_BOARD } from '../constants/EMPTY_BOARD';
 
 describe('_toggleTurn should change games turn', () => {
