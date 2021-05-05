@@ -1,4 +1,12 @@
-import type { Move, Side, Movement, Board, Field, Chip } from './types';
+import type {
+  GameState,
+  Movement,
+  Board,
+  Field,
+  Side,
+  Move,
+  Chip,
+} from './types';
 
 export const _toggleTurn = (turn: Side): Side =>
   turn === 'white' ? 'black' : 'white';
@@ -31,3 +39,24 @@ export const _applyMovementToBoard = (
     [to]: _addChipToField(board[to], fromField.side),
   };
 };
+
+export const _applyMovementsToBoard = (
+  movements: Movement[],
+  board: Board,
+): Board => {
+  // let newBoard = { ...board };
+  movements.forEach((movement) => {
+    board = _applyMovementToBoard(movement, board);
+  });
+  return board;
+};
+
+export const _applyMoveToGame = (
+  move: Move,
+  gameState: GameState,
+): GameState => ({
+  ...gameState,
+  turn: _toggleTurn(gameState.turn),
+  history: _recordMove(move, gameState.history),
+  board: _applyMovementsToBoard(move.movements, gameState.board),
+});

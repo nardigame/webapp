@@ -2,7 +2,7 @@ import { initMatch } from '../NardiMatch';
 import { EMPTY_BOARD } from '../constants/EMPTY_BOARD';
 
 describe('initMatch', () => {
-  it('should return initial game state', () => {
+  test('should return initial game state', () => {
     expect(initMatch()).toEqual({
       history: [],
       board: {
