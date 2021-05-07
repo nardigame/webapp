@@ -1,3 +1,3 @@
-import { helloTo } from './hello';
+import { initMatch } from './NardiEngine/NardiMatch';
 
-console.log(helloTo('Ramil'));
+console.log(initMatch());
