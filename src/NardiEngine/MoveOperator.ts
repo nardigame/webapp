@@ -44,11 +44,11 @@ export const _applyMovementsToBoard = (
   movements: Movement[],
   board: Board,
 ): Board => {
-  // let newBoard = { ...board };
+  let newBoard = { ...board };
   movements.forEach((movement) => {
-    board = _applyMovementToBoard(movement, board);
+    newBoard = _applyMovementToBoard(movement, newBoard);
   });
-  return board;
+  return newBoard;
 };
 
 export const _applyMoveToGame = (
