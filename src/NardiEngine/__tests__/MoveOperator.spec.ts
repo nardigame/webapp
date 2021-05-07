@@ -19,8 +19,6 @@ import type {
   Field,
 } from '../types';
 
-// TODO: test immutability
-
 describe('_toggleTurn', () => {
   describe('should toggle turn', () => {
     test.each([
