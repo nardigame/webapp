@@ -32,5 +32,4 @@ module.exports = {
   buildOptions: {
     /* ... */
   },
-  root: 'src',
 };
