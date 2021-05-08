@@ -1,11 +1,11 @@
+![unit tests](https://github.com/bezdonas/nardi-webapp/actions/workflows/unit.yml/badge.svg)
+![e2e tests](https://github.com/bezdonas/nardi-webapp/actions/workflows/e2e.yml/badge.svg)
+
 # Work In Progress
 
 - [ ] Nardi engine
 - [ ] Visuals
 - [ ] Multiplayer
-
-![unit tests](https://github.com/bezdonas/nardi-webapp/actions/workflows/unit.yml/badge.svg)
-![e2e tests](https://github.com/bezdonas/nardi-webapp/actions/workflows/e2e.yml/badge.svg)
 
 # Nardi
 
