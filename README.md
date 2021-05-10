@@ -29,7 +29,12 @@ App for playing nardi(Long backgammon) online.
 
 ## Via docker
 
-Not containerized yet
+- `npm run dstart` starts dev-server (`docker compose up`)
+- `npm run dstart:rebuild` will also rebuild image (`docker compose up --build`)
+- `npm run dtest` runs tests in docker container (`docker compose run nardi-webapp npm run test:ci`)
+- `npm run dtest:watch` runs tests in docker container in watch mode (`docker compose run nardi-webapp npm run test:watch`)
+- `npm run dbuild` builds production bundle in `./build` (`docker compose run nardi-webapp npm run build`)
+- `npm run dcleanup` cleans up all docker stuff (`docker compose down --rmi all -v`)
 
 # CI/CD
 

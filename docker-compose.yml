@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  nardi-webapp:
+    container_name: nardi-webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '8080:8080'
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
