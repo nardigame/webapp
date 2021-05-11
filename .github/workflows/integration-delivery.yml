@@ -19,19 +19,19 @@ jobs:
 
       - name: up
         run: |
-          docker compose up
-          docker compose run nardi-webapp npm ci
+          docker-compose up
+          docker-compose run nardi-webapp npm ci
 
       - name: lint
-        run: docker compose run nardi-webapp npm run lint
+        run: docker-compose run nardi-webapp npm run lint
 
       - name: build
-        run: docker compose run nardi-webapp npm run build
+        run: docker-compose run nardi-webapp npm run build
 
       - name: e2e
         run: |
-          docker compose run nardi-webapp npx serve ./build &
-          docker compose run nardi-webapp npm run e2e
+          docker-compose run nardi-webapp npx serve ./build &
+          docker-compose run nardi-webapp npm run e2e
 
   delivery:
     needs: integration
@@ -47,9 +47,9 @@ jobs:
 
       - name: build
         run: |
-          docker compose up
-          docker compose run nardi-webapp npm ci
-          docker compose run nardi-webapp npm run build
+          docker-compose up
+          docker-compose run nardi-webapp npm ci
+          docker-compose run nardi-webapp npm run build
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
