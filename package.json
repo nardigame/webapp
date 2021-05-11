@@ -11,13 +11,7 @@
     "e2e": "cypress run",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "prettier --check \"src/**/*.{ts,js}\" & eslint ./src --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install",
-    "dstart": "docker compose up",
-    "dstart:rebuild": "docker compose up --build",
-    "dtest": "docker compose run nardi-webapp npm run test:ci",
-    "dtest:watch": "docker compose run nardi-webapp npm run test:watch",
-    "dbuild": "docker compose run nardi-webapp npm run build",
-    "dcleanup": "docker compose down --rmi all -v"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",

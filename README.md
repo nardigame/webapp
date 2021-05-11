@@ -27,14 +27,9 @@ App for playing nardi(Long backgammon) online.
 - `npm start` start prod server
 - `npm run e2e` runs e2e tests via cypress on prod build (needs prod server running)
 
-## Via docker
+# Docker
 
-- `npm run dstart` starts dev-server (`docker compose up`)
-- `npm run dstart:rebuild` will also rebuild image (`docker compose up --build`)
-- `npm run dtest` runs tests in docker container (`docker compose run nardi-webapp npm run test:ci`)
-- `npm run dtest:watch` runs tests in docker container in watch mode (`docker compose run nardi-webapp npm run test:watch`)
-- `npm run dbuild` builds production bundle in `./build` (`docker compose run nardi-webapp npm run build`)
-- `npm run dcleanup` cleans up all docker stuff (`docker compose down --rmi all -v`)
+...
 
 # CI/CD
 
@@ -55,3 +50,7 @@ App for playing nardi(Long backgammon) online.
 - [docker](https://www.docker.com/) containerization
 - [serve](https://www.npmjs.com/package/serve) serves prod server
 - [husky](https://github.com/typicode/husky) runs pre-commit and pre-push webhooks (with linter and tests)
+
+- [github actions](https://github.com/features/actions) CI/CD
+- [github packages](https://github.com/features/packages) for hosting docker images
+- heroku? aws?
