@@ -3,13 +3,9 @@
 
 # Work In Progress
 
-- [ ] Nardi engine
-- [ ] Visuals
-- [ ] Multiplayer
+# Nardi-webapp
 
-# Nardi
-
-App for playing nardi(Long backgammon) online.
+Webapp for [nardi project](https://github.com/users/bezdonas/projects/1).
 
 - [Demo](https://nardi-webapp.herokuapp.com)
 - [Github Actions CI](https://github.com/bezdonas/nardi-webapp/actions)
